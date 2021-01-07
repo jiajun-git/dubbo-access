@@ -42,6 +42,12 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>4.2.5.RELEASE</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.access</groupId>
             <artifactId>access-api</artifactId>
             <version>V1.0</version>
