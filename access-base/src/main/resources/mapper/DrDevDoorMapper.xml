@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.access.base.mapper.DrDevDoorMapper">
+    <resultMap id="BaseResultMap" type="com.access.base.entity.DrDevDoor">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="ID" jdbcType="DECIMAL" property="id"/>
+        <result column="DEVID" jdbcType="DECIMAL" property="devid"/>
+        <result column="DEVNAME" jdbcType="VARCHAR" property="devname"/>
+        <result column="ADDR" jdbcType="DECIMAL" property="addr"/>
+        <result column="PADDR" jdbcType="DECIMAL" property="paddr"/>
+        <result column="ISACTIVED" jdbcType="DECIMAL" property="isactived"/>
+        <result column="VER" jdbcType="DECIMAL" property="ver"/>
+        <result column="VERFLAG" jdbcType="DECIMAL" property="verflag"/>
+        <result column="DOORSTATUS" jdbcType="DECIMAL" property="doorstatus"/>
+        <result column="OPENLOCKTIME" jdbcType="DECIMAL" property="openlocktime"/>
+        <result column="OPENDOORTIME" jdbcType="DECIMAL" property="opendoortime"/>
+        <result column="DIRECTION" jdbcType="DECIMAL" property="direction"/>
+        <result column="ADDVER" jdbcType="DECIMAL" property="addver"/>
+        <result column="DELVER" jdbcType="DECIMAL" property="delver"/>
+    </resultMap>
+
+    <select id="getDevInitDate" resultType="com.access.api.model.AccessDevInitDto">
+        select
+        d.ADDR as mac,
+        p.DEVCODE || d.ADDR as devSn
+        from dr_dev_door d
+        left join pc_dev_info p on d.DEVID = p.ID
+        where p.DEVCODE = #{devCode} and p.ISACTIVED = 1
+    </select>
+
+    <select id="getDevIdByDevCodeAndMac" resultType="java.lang.Integer">
+        select d.id
+        from dr_dev_door d
+        left join pc_dev_info p on d.DEVID = p.ID
+        where p.DEVCODE = #{devCode} and d.ADDR = #{mac} and p.ISACTIVED = 1
+    </select>
+</mapper>

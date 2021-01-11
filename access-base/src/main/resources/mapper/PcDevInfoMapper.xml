@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.access.base.mapper.PcDevInfoMapper">
+  <resultMap id="BaseResultMap" type="com.access.base.entity.PcDevInfo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="PID" jdbcType="DECIMAL" property="pid" />
+    <result column="DEVCODE" jdbcType="VARCHAR" property="devcode" />
+    <result column="DEVTYPEID" jdbcType="DECIMAL" property="devtypeid" />
+    <result column="DEVNAME" jdbcType="VARCHAR" property="devname" />
+    <result column="ADDR" jdbcType="DECIMAL" property="addr" />
+    <result column="PADDR" jdbcType="DECIMAL" property="paddr" />
+    <result column="COMMCONTEXT" jdbcType="VARCHAR" property="commcontext" />
+    <result column="WORKSTATIONID" jdbcType="DECIMAL" property="workstationid" />
+    <result column="NETSTATUS" jdbcType="DECIMAL" property="netstatus" />
+    <result column="DEVSTATUS" jdbcType="DECIMAL" property="devstatus" />
+    <result column="VER" jdbcType="DECIMAL" property="ver" />
+    <result column="VERFLAG" jdbcType="DECIMAL" property="verflag" />
+    <result column="ISACTIVED" jdbcType="DECIMAL" property="isactived" />
+    <result column="FUNCTIONTYPE" jdbcType="DECIMAL" property="functiontype" />
+    <result column="ISSENDSMS" jdbcType="DECIMAL" property="issendsms" />
+    <result column="COLLECTSTIONCODE" jdbcType="DECIMAL" property="collectstioncode" />
+    <result column="NETSTATUSTIME" jdbcType="TIMESTAMP" property="netstatustime" />
+  </resultMap>
+
+
+</mapper>

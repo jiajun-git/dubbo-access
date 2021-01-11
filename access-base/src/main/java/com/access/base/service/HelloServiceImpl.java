@@ -1,6 +1,6 @@
-package com.access.base;
+package com.access.base.service;
 
-import com.access.service.HelloService;
+import com.access.api.service.HelloService;
 import com.alibaba.dubbo.config.annotation.Service;
 import org.springframework.stereotype.Component;
 

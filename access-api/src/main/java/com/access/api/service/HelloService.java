@@ -1,4 +1,4 @@
-package com.access.service;
+package com.access.api.service;
 
 public interface HelloService {
 

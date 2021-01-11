@@ -1,7 +1,7 @@
 package com.access.communication;
 
 
-import com.access.service.HelloService;
+import com.access.api.service.HelloService;
 import com.alibaba.dubbo.config.annotation.Reference;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
