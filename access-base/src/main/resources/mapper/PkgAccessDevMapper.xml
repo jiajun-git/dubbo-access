@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.access.base.mapper.PkgAccessDevMapper">
+    <select id="callHeartbeat" parameterType="java.util.Map" statementType="CALLABLE">
+        {call pkg_access_heartbeat.access_heartbeat(
+        #{v_dev_id,mode=IN,jdbcType=INTEGER},
+        #{err_code,mode=OUT,jdbcType=INTEGER},
+        #{err_msg,mode=OUT,jdbcType=VARCHAR},
+        #{o_cust_ver,mode=OUT,jdbcType=INTEGER},
+        #{o_group_ver,mode=OUT,jdbcType=INTEGER},
+        #{o_custgroup_ver,mode=OUT,jdbcType=INTEGER},
+        #{o_custplan_ver,mode=OUT,jdbcType=INTEGER},
+        #{o_aceplan_ver,mode=OUT,jdbcType=INTEGER},
+        #{o_param_ver,mode=OUT,jdbcType=INTEGER}
+        )}
+    </select>
+
+
+</mapper>

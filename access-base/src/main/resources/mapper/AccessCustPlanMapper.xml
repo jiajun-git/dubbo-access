@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.access.base.mapper.AccessCustPlanMapper">
+    <select id="queryPlanList" resultType="com.access.api.model.AccessCustPlanDto">
+            SELECT
+            plan.ID plan_id,
+            detail.WEEKNO week,
+            detail.BEGINHOUR begin_hour,
+            detail.BEGINMIN begin_minute,
+            detail.ENDHOUR end_hour,
+            detail.ENDMIN end_minute,
+            detail.TIMETYPE type
+            FROM
+            dr_customer_time plan
+            LEFT JOIN DR_CUSTOMER_TIME_MORE detail ON plan.ID = detail.TIMEID
+    </select>
+</mapper>
