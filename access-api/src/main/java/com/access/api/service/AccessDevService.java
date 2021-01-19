@@ -1,5 +1,6 @@
 package com.access.api.service;
 
+import com.access.api.entity.PcDevInfo;
 import com.access.api.model.AccessDevInitDto;
 
 import java.util.List;
@@ -20,5 +21,12 @@ public interface AccessDevService {
      * @create: 2021-01-08
      **/
     Integer getDevIdByDevCodeAndMac(String devCode,Integer mac);
+
+    /**
+     * @author: sjj
+     * @description: 根据控制器id查询控制器信息
+     * @create: 2021-01-15
+     **/
+    PcDevInfo getPcDevInfo(Integer id);
 
 }

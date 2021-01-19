@@ -1,77 +1,79 @@
-package com.access.base.entity;
+package com.access.api.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Table(name = "DR_DEV_DOOR")
 public class DrDevDoor {
     @Id
     @Column(name = "ID")
-    private Short id;
+    private Integer id;
 
     @Column(name = "DEVID")
-    private Short devid;
+    private Integer devid;
 
     @Column(name = "DEVNAME")
     private String devname;
 
     @Column(name = "ADDR")
-    private Short addr;
+    private Integer addr;
 
     @Column(name = "PADDR")
-    private Short paddr;
+    private Integer paddr;
 
     @Column(name = "ISACTIVED")
-    private Short isactived;
+    private Integer isactived;
 
     @Column(name = "VER")
-    private Short ver;
+    private Integer ver;
 
     @Column(name = "VERFLAG")
-    private Short verflag;
+    private Integer verflag;
 
     @Column(name = "DOORSTATUS")
-    private Short doorstatus;
+    private Integer doorstatus;
 
     @Column(name = "OPENLOCKTIME")
-    private Short openlocktime;
+    private Integer openlocktime;
 
     @Column(name = "OPENDOORTIME")
-    private Short opendoortime;
+    private Integer opendoortime;
 
     @Column(name = "DIRECTION")
-    private Short direction;
+    private Integer direction;
 
     @Column(name = "ADDVER")
-    private Short addver;
+    private Integer addver;
 
     @Column(name = "DELVER")
-    private Short delver;
+    private Integer delver;
 
     /**
      * @return ID
      */
-    public Short getId() {
+    public Integer getId() {
         return id;
     }
 
     /**
      * @param id
      */
-    public void setId(Short id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
     /**
      * @return DEVID
      */
-    public Short getDevid() {
+    public Integer getDevid() {
         return devid;
     }
 
     /**
      * @param devid
      */
-    public void setDevid(Short devid) {
+    public void setDevid(Integer devid) {
         this.devid = devid;
     }
 
@@ -92,154 +94,154 @@ public class DrDevDoor {
     /**
      * @return ADDR
      */
-    public Short getAddr() {
+    public Integer getAddr() {
         return addr;
     }
 
     /**
      * @param addr
      */
-    public void setAddr(Short addr) {
+    public void setAddr(Integer addr) {
         this.addr = addr;
     }
 
     /**
      * @return PADDR
      */
-    public Short getPaddr() {
+    public Integer getPaddr() {
         return paddr;
     }
 
     /**
      * @param paddr
      */
-    public void setPaddr(Short paddr) {
+    public void setPaddr(Integer paddr) {
         this.paddr = paddr;
     }
 
     /**
      * @return ISACTIVED
      */
-    public Short getIsactived() {
+    public Integer getIsactived() {
         return isactived;
     }
 
     /**
      * @param isactived
      */
-    public void setIsactived(Short isactived) {
+    public void setIsactived(Integer isactived) {
         this.isactived = isactived;
     }
 
     /**
      * @return VER
      */
-    public Short getVer() {
+    public Integer getVer() {
         return ver;
     }
 
     /**
      * @param ver
      */
-    public void setVer(Short ver) {
+    public void setVer(Integer ver) {
         this.ver = ver;
     }
 
     /**
      * @return VERFLAG
      */
-    public Short getVerflag() {
+    public Integer getVerflag() {
         return verflag;
     }
 
     /**
      * @param verflag
      */
-    public void setVerflag(Short verflag) {
+    public void setVerflag(Integer verflag) {
         this.verflag = verflag;
     }
 
     /**
      * @return DOORSTATUS
      */
-    public Short getDoorstatus() {
+    public Integer getDoorstatus() {
         return doorstatus;
     }
 
     /**
      * @param doorstatus
      */
-    public void setDoorstatus(Short doorstatus) {
+    public void setDoorstatus(Integer doorstatus) {
         this.doorstatus = doorstatus;
     }
 
     /**
      * @return OPENLOCKTIME
      */
-    public Short getOpenlocktime() {
+    public Integer getOpenlocktime() {
         return openlocktime;
     }
 
     /**
      * @param openlocktime
      */
-    public void setOpenlocktime(Short openlocktime) {
+    public void setOpenlocktime(Integer openlocktime) {
         this.openlocktime = openlocktime;
     }
 
     /**
      * @return OPENDOORTIME
      */
-    public Short getOpendoortime() {
+    public Integer getOpendoortime() {
         return opendoortime;
     }
 
     /**
      * @param opendoortime
      */
-    public void setOpendoortime(Short opendoortime) {
+    public void setOpendoortime(Integer opendoortime) {
         this.opendoortime = opendoortime;
     }
 
     /**
      * @return DIRECTION
      */
-    public Short getDirection() {
+    public Integer getDirection() {
         return direction;
     }
 
     /**
      * @param direction
      */
-    public void setDirection(Short direction) {
+    public void setDirection(Integer direction) {
         this.direction = direction;
     }
 
     /**
      * @return ADDVER
      */
-    public Short getAddver() {
+    public Integer getAddver() {
         return addver;
     }
 
     /**
      * @param addver
      */
-    public void setAddver(Short addver) {
+    public void setAddver(Integer addver) {
         this.addver = addver;
     }
 
     /**
      * @return DELVER
      */
-    public Short getDelver() {
+    public Integer getDelver() {
         return delver;
     }
 
     /**
      * @param delver
      */
-    public void setDelver(Short delver) {
+    public void setDelver(Integer delver) {
         this.delver = delver;
     }
 

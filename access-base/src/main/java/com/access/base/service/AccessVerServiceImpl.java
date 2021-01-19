@@ -7,6 +7,7 @@ import com.access.base.mapper.PkgAccessDevMapper;
 import com.alibaba.druid.util.StringUtils;
 import com.alibaba.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,6 +19,7 @@ import java.util.Map;
  **/
 
 @Service
+@Component
 public class AccessVerServiceImpl implements AccessVerService {
 
     @Autowired

@@ -1,4 +1,4 @@
-package com.access.base.entity;
+package com.access.api.entity;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -8,55 +8,55 @@ public class PcDevInfo {
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "select SEQ_PC_DEV_INFO_ID.nextval from dual")
-    private Short id;
+    private Integer id;
 
     @Column(name = "PID")
-    private Short pid;
+    private Integer pid;
 
     @Column(name = "DEVCODE")
     private String devcode;
 
     @Column(name = "DEVTYPEID")
-    private Short devtypeid;
+    private Integer devtypeid;
 
     @Column(name = "DEVNAME")
     private String devname;
 
     @Column(name = "ADDR")
-    private Short addr;
+    private Integer addr;
 
     @Column(name = "PADDR")
-    private Short paddr;
+    private Integer paddr;
 
     @Column(name = "COMMCONTEXT")
     private String commcontext;
 
     @Column(name = "WORKSTATIONID")
-    private Short workstationid;
+    private Integer workstationid;
 
     @Column(name = "NETSTATUS")
-    private Short netstatus;
+    private Integer netstatus;
 
     @Column(name = "DEVSTATUS")
-    private Short devstatus;
+    private Integer devstatus;
 
     @Column(name = "VER")
-    private Short ver;
+    private Integer ver;
 
     @Column(name = "VERFLAG")
-    private Short verflag;
+    private Integer verflag;
 
     @Column(name = "ISACTIVED")
-    private Short isactived;
+    private Integer isactived;
 
     @Column(name = "FUNCTIONTYPE")
-    private Short functiontype;
+    private Integer functiontype;
 
     @Column(name = "ISSENDSMS")
-    private Short issendsms;
+    private Integer issendsms;
 
     @Column(name = "COLLECTSTIONCODE")
-    private Short collectstioncode;
+    private Integer collectstioncode;
 
     @Column(name = "NETSTATUSTIME")
     private Date netstatustime;
@@ -64,28 +64,28 @@ public class PcDevInfo {
     /**
      * @return ID
      */
-    public Short getId() {
+    public Integer getId() {
         return id;
     }
 
     /**
      * @param id
      */
-    public void setId(Short id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
     /**
      * @return PID
      */
-    public Short getPid() {
+    public Integer getPid() {
         return pid;
     }
 
     /**
      * @param pid
      */
-    public void setPid(Short pid) {
+    public void setPid(Integer pid) {
         this.pid = pid;
     }
 
@@ -106,14 +106,14 @@ public class PcDevInfo {
     /**
      * @return DEVTYPEID
      */
-    public Short getDevtypeid() {
+    public Integer getDevtypeid() {
         return devtypeid;
     }
 
     /**
      * @param devtypeid
      */
-    public void setDevtypeid(Short devtypeid) {
+    public void setDevtypeid(Integer devtypeid) {
         this.devtypeid = devtypeid;
     }
 
@@ -134,28 +134,28 @@ public class PcDevInfo {
     /**
      * @return ADDR
      */
-    public Short getAddr() {
+    public Integer getAddr() {
         return addr;
     }
 
     /**
      * @param addr
      */
-    public void setAddr(Short addr) {
+    public void setAddr(Integer addr) {
         this.addr = addr;
     }
 
     /**
      * @return PADDR
      */
-    public Short getPaddr() {
+    public Integer getPaddr() {
         return paddr;
     }
 
     /**
      * @param paddr
      */
-    public void setPaddr(Short paddr) {
+    public void setPaddr(Integer paddr) {
         this.paddr = paddr;
     }
 
@@ -176,126 +176,126 @@ public class PcDevInfo {
     /**
      * @return WORKSTATIONID
      */
-    public Short getWorkstationid() {
+    public Integer getWorkstationid() {
         return workstationid;
     }
 
     /**
      * @param workstationid
      */
-    public void setWorkstationid(Short workstationid) {
+    public void setWorkstationid(Integer workstationid) {
         this.workstationid = workstationid;
     }
 
     /**
      * @return NETSTATUS
      */
-    public Short getNetstatus() {
+    public Integer getNetstatus() {
         return netstatus;
     }
 
     /**
      * @param netstatus
      */
-    public void setNetstatus(Short netstatus) {
+    public void setNetstatus(Integer netstatus) {
         this.netstatus = netstatus;
     }
 
     /**
      * @return DEVSTATUS
      */
-    public Short getDevstatus() {
+    public Integer getDevstatus() {
         return devstatus;
     }
 
     /**
      * @param devstatus
      */
-    public void setDevstatus(Short devstatus) {
+    public void setDevstatus(Integer devstatus) {
         this.devstatus = devstatus;
     }
 
     /**
      * @return VER
      */
-    public Short getVer() {
+    public Integer getVer() {
         return ver;
     }
 
     /**
      * @param ver
      */
-    public void setVer(Short ver) {
+    public void setVer(Integer ver) {
         this.ver = ver;
     }
 
     /**
      * @return VERFLAG
      */
-    public Short getVerflag() {
+    public Integer getVerflag() {
         return verflag;
     }
 
     /**
      * @param verflag
      */
-    public void setVerflag(Short verflag) {
+    public void setVerflag(Integer verflag) {
         this.verflag = verflag;
     }
 
     /**
      * @return ISACTIVED
      */
-    public Short getIsactived() {
+    public Integer getIsactived() {
         return isactived;
     }
 
     /**
      * @param isactived
      */
-    public void setIsactived(Short isactived) {
+    public void setIsactived(Integer isactived) {
         this.isactived = isactived;
     }
 
     /**
      * @return FUNCTIONTYPE
      */
-    public Short getFunctiontype() {
+    public Integer getFunctiontype() {
         return functiontype;
     }
 
     /**
      * @param functiontype
      */
-    public void setFunctiontype(Short functiontype) {
+    public void setFunctiontype(Integer functiontype) {
         this.functiontype = functiontype;
     }
 
     /**
      * @return ISSENDSMS
      */
-    public Short getIssendsms() {
+    public Integer getIssendsms() {
         return issendsms;
     }
 
     /**
      * @param issendsms
      */
-    public void setIssendsms(Short issendsms) {
+    public void setIssendsms(Integer issendsms) {
         this.issendsms = issendsms;
     }
 
     /**
      * @return COLLECTSTIONCODE
      */
-    public Short getCollectstioncode() {
+    public Integer getCollectstioncode() {
         return collectstioncode;
     }
 
     /**
      * @param collectstioncode
      */
-    public void setCollectstioncode(Short collectstioncode) {
+    public void setCollectstioncode(Integer collectstioncode) {
         this.collectstioncode = collectstioncode;
     }
 

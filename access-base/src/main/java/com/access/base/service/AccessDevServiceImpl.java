@@ -1,11 +1,13 @@
 package com.access.base.service;
 
+import com.access.api.entity.PcDevInfo;
 import com.access.api.model.AccessDevInitDto;
 import com.access.api.service.AccessDevService;
 import com.access.base.mapper.DrDevDoorMapper;
 import com.access.base.mapper.PcDevInfoMapper;
 import com.alibaba.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -16,6 +18,7 @@ import java.util.List;
  **/
 
 @Service
+@Component
 public class AccessDevServiceImpl implements AccessDevService {
 
     @Autowired
@@ -34,6 +37,14 @@ public class AccessDevServiceImpl implements AccessDevService {
     @Override
     public Integer getDevIdByDevCodeAndMac(String devCode, Integer mac) {
         Integer result = drDevDoorMapper.getDevIdByDevCodeAndMac(devCode, mac);
+        return result;
+    }
+
+    @Override
+    public PcDevInfo getPcDevInfo(Integer id) {
+        PcDevInfo pcDevInfo = new PcDevInfo();
+        pcDevInfo.setId(id);
+        PcDevInfo result = pcDevInfoMapper.selectOne(pcDevInfo);
         return result;
     }
 }
