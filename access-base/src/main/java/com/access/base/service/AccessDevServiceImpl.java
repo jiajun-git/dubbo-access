@@ -5,9 +5,8 @@ import com.access.api.model.AccessDevInitDto;
 import com.access.api.service.AccessDevService;
 import com.access.base.mapper.DrDevDoorMapper;
 import com.access.base.mapper.PcDevInfoMapper;
-import com.alibaba.dubbo.config.annotation.Service;
+import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -17,8 +16,7 @@ import java.util.List;
  * @create: 2021-01-08
  **/
 
-@Service
-@Component
+@Service(version = "1.0.0")
 public class AccessDevServiceImpl implements AccessDevService {
 
     @Autowired

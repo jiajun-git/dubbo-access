@@ -1,12 +1,10 @@
 package com.access.base.service;
 
 import com.access.api.service.HelloService;
-import com.alibaba.dubbo.config.annotation.Service;
-import org.springframework.stereotype.Component;
+import org.apache.dubbo.config.annotation.Service;
 
 //dubbo注解，暴露服务
-@Service
-@Component
+@Service(version = "1.0.0")
 public class HelloServiceImpl implements HelloService {
 
     @Override

@@ -3,7 +3,7 @@ package com.access.base.service;
 import com.access.api.model.AccessCustPlanDto;
 import com.access.api.service.AccessCustPlanService;
 import com.access.base.mapper.AccessCustPlanMapper;
-import com.alibaba.dubbo.config.annotation.Service;
+import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -14,7 +14,7 @@ import java.util.List;
  * @create: 2021-01-13
  **/
 
-@Service
+@Service(version = "1.0.0")
 public class AccessCustPlanServiceImpl implements AccessCustPlanService {
 
     @Autowired

@@ -5,9 +5,8 @@ import com.access.api.service.AccessVerService;
 import com.access.base.exception.BusinessException;
 import com.access.base.mapper.PkgAccessDevMapper;
 import com.alibaba.druid.util.StringUtils;
-import com.alibaba.dubbo.config.annotation.Service;
+import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,8 +17,7 @@ import java.util.Map;
  * @create: 2021-01-13
  **/
 
-@Service
-@Component
+@Service(version = "1.0.0")
 public class AccessVerServiceImpl implements AccessVerService {
 
     @Autowired
