@@ -30,9 +30,8 @@
         where p.DEVCODE = #{devCode} and p.ISACTIVED = 1
     </select>
 
-    <select id="getDevIdByDevCodeAndMac" resultType="java.lang.Integer">
-        select d.id
-        from dr_dev_door d
+    <select id="getDevInfoByDevCodeAndMac" resultType="java.lang.Integer">
+        select * from dr_dev_door d
         left join pc_dev_info p on d.DEVID = p.ID
         where p.DEVCODE = #{devCode} and d.ADDR = #{mac} and p.ISACTIVED = 1
     </select>

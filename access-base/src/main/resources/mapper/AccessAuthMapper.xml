@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.access.base.mapper.AccessAuthMapper">
+
+    <select id="getTemporaryCustList" resultType="com.access.api.model.AccessTemporaryCustDto">
+        select
+        temp.ID as id,
+        dev.DEVCODE || door.ADDR as devSn,
+        temp.ITYPE as type,
+        customer.CUSTOMERCARDCODE as custCode,
+        card.CARDNO as cardNo,
+        to_char(temp.BEGINTIME,'yyyyMMddHH24miss') beginTime,
+        to_char(temp.EDITTIME,'yyyyMMddHH24miss') endTime,
+        1 as openType
+        from DR_TEMP_CUSTOMER_LIMIT temp
+        left join pc_customer_base customer on customer.ID = temp.CUSTOMERID
+        left join pc_customer_card card on customer.Id = card.CUSTOMERID
+        left join dr_dev_door door on temp.DOORID = door.ID
+        left join pc_dev_info dev on temp.DEVID = dev.ID
+        where temp.ISTATE = 0 and temp.DEVTYPE = 1
+        order by temp.ID
+    </select>
+</mapper>

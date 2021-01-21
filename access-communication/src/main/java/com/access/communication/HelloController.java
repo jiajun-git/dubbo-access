@@ -14,10 +14,10 @@ import java.util.List;
 @RequestMapping(value = "/hello")
 public class HelloController {
 
-    @Reference
+    @Reference(version = "1.0.0")
     private HelloService helloService;
 
-    @Reference
+    @Reference(version = "1.0.0")
     private AccessDevService accessDevService;
 
     @RequestMapping(value = "/hello")

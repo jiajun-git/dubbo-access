@@ -9,5 +9,5 @@ import java.util.List;
 public interface DrDevDoorMapper extends Mapper<DrDevDoor> {
     List<AccessDevInitDto> getDevInitDate(String devCode);
 
-    Integer getDevIdByDevCodeAndMac(String devCode, Integer mac);
+    DrDevDoor getDevInfoByDevCodeAndMac(String devCode, Integer mac);
 }

@@ -1,10 +1,12 @@
 package com.access.communication;
 
-import com.alibaba.dubbo.spring.boot.annotation.EnableDubboConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.context.annotation.ComponentScan;
 
-@EnableDubboConfiguration
+@EnableDiscoveryClient
+@ComponentScan(value = "com.access.communication")
 @SpringBootApplication
 public class AccessCommunicationApplication {
 

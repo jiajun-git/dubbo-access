@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration status="warn">
+
+    <Properties>
+        <Property name="LOG_HOME">./logs</Property>
+        <property name="LOG_BACK_HOME">${LOG_HOME}/backup</property>
+        <property name="LOG_FILE_NAME">access-communication</property>
+        <property name="PATTERN_OUT">%magenta{%d{yyyy-MM-dd HH:mm:ss.SSS}} | %highlight{%traceId} | %green{%-5level} | %magenta{${sys:PID}} | %cyan{${LOG_FILE_NAME}} | %t | %cyan{%l} : %highlight{%m%n}</property>
+        <property name="PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS} | %traceId | %-5level | ${sys:PID} | ${LOG_FILE_NAME} | %t | %l : %m%n</property>
+    </Properties>
+
+    <Appenders>
+        <Console name="CONSOLE_OUT_APPENDER" target="SYSTEM_OUT">
+            <ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="${PATTERN_OUT}"/>
+        </Console>
+
+        <RollingFile name="LOG_FILE_NAME" fileName="${LOG_HOME}/${LOG_FILE_NAME}.log" filePattern="${LOG_BACK_HOME}/$${date:yyyy-MM}/${LOG_FILE_NAME}.%d{yyyy-MM-dd}.log.zip">
+            <PatternLayout pattern="${PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+            </Policies>
+            <Filters>
+                <ThresholdFilter level="info"/>
+            </Filters>
+            <DefaultRolloverStrategy max="30"/>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+
+        <!-- 配置日志的根节点 -->
+        <root level="info">
+            <appender-ref ref="CONSOLE_OUT_APPENDER"/>
+            <AppenderRef ref="LOG_FILE_NAME" />
+        </root>
+
+    </Loggers>
+
+</Configuration>

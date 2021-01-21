@@ -1,5 +1,6 @@
 package com.access.base.service;
 
+import com.access.api.entity.DrDevDoor;
 import com.access.api.entity.PcDevInfo;
 import com.access.api.model.AccessDevInitDto;
 import com.access.api.service.AccessDevService;
@@ -33,8 +34,8 @@ public class AccessDevServiceImpl implements AccessDevService {
     }
 
     @Override
-    public Integer getDevIdByDevCodeAndMac(String devCode, Integer mac) {
-        Integer result = drDevDoorMapper.getDevIdByDevCodeAndMac(devCode, mac);
+    public DrDevDoor getDevInfoByDevCodeAndMac(String devCode, Integer mac) {
+        DrDevDoor result = drDevDoorMapper.getDevInfoByDevCodeAndMac(devCode, mac);
         return result;
     }
 

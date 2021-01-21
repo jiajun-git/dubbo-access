@@ -1,5 +1,6 @@
 package com.access.api.service;
 
+import com.access.api.entity.DrDevDoor;
 import com.access.api.entity.PcDevInfo;
 import com.access.api.model.AccessDevInitDto;
 
@@ -17,10 +18,10 @@ public interface AccessDevService {
 
     /**
      * @author: sjj
-     * @description: 根据控制器编号及mac地址查询设备id
+     * @description: 根据控制器编号及mac地址查询设备信息
      * @create: 2021-01-08
      **/
-    Integer getDevIdByDevCodeAndMac(String devCode,Integer mac);
+    DrDevDoor getDevInfoByDevCodeAndMac(String devCode, Integer mac);
 
     /**
      * @author: sjj
