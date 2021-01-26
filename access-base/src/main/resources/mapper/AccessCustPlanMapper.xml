@@ -13,5 +13,6 @@
             FROM
             dr_customer_time plan
             LEFT JOIN DR_CUSTOMER_TIME_MORE detail ON plan.ID = detail.TIMEID
+            where plan.VER <![CDATA[ <= ]]> #{ver}
     </select>
 </mapper>

@@ -5,13 +5,12 @@
     <select id="getTemporaryCustList" resultType="com.access.api.model.AccessTemporaryCustDto">
         select
         temp.ID as id,
-        dev.DEVCODE || door.ADDR as devSn,
+        dev.DEVCODE || door.ADDR as dev_sn,
         temp.ITYPE as type,
-        customer.CUSTOMERCARDCODE as custCode,
-        card.CARDNO as cardNo,
-        to_char(temp.BEGINTIME,'yyyyMMddHH24miss') beginTime,
-        to_char(temp.EDITTIME,'yyyyMMddHH24miss') endTime,
-        1 as openType
+        customer.CUSTOMERCARDCODE as cust_code,
+        card.CARDNO as card_no,
+        temp.BEGINTIME begin_time,
+        temp.EDITTIME end_time
         from DR_TEMP_CUSTOMER_LIMIT temp
         left join pc_customer_base customer on customer.ID = temp.CUSTOMERID
         left join pc_customer_card card on customer.Id = card.CUSTOMERID
@@ -19,5 +18,135 @@
         left join pc_dev_info dev on temp.DEVID = dev.ID
         where temp.ISTATE = 0 and temp.DEVTYPE = 1
         order by temp.ID
+    </select>
+
+    <select id="getAccessGroupList" resultType="com.access.api.model.AccessGroupDto">
+        select
+        d.GROUPCODE group_id,
+        g.OPENTYPE open_type,
+        g.USERPLANID plan_id
+        from DR_LIMIT_GROUP_DOOR d
+        left join DR_LIMIT_GROUP g on d.GROUPCODE = g.SCODE
+        where d.DOORID = #{devId}
+    </select>
+
+    <select id="getAccessCustList" resultType="com.access.api.model.AccessCustDto">
+        select
+        p.cust_code  as cust_code,
+        p.begin_time as begin_time,
+        p.end_time   as end_time,
+        p.type       as type,
+        c.cardno     as card_no,
+        c.cardstatus as card_status,
+        f.expendpwd  as consum_pwd,
+        0            as is_special
+        from (
+            select
+                p1.id               as id,
+                p1.customercardcode as cust_code,
+                p1.devbegintime     as begin_time,
+                p1.devendtime       as end_time,
+                p1.ver              as ver,
+                1                   as type
+            from pc_customer_base p1
+            union all
+            select
+                p2.custid           as id,
+                p2.customercardcode as cust_code,
+                null                as begin_time,
+                null                as end_time,
+                p2.custver          as ver,
+                0                   as type
+            from PC_WRITEOFF p2) p
+        left join (
+            select
+                c1.customerid,
+                c1.cardno,
+                c1.cardstatus
+            from PC_CUSTOMER_CARD c1
+            union all
+            select
+                c2.customerid,
+                c2.cardno,
+                c2.cardstatus
+            from PC_WRITEOFF_CUS_CARD c2) c on p.id = c.customerid
+        left join FEE_CUS_WALLET f on f.cusid = p.id
+        where p.ver > #{ver} and p.ver <![CDATA[ <= ]]> #{maxVer}
+        order by p.ver
+    </select>
+
+
+    <select id="getAccessCustWholeList" resultType="com.access.api.model.AccessCustDto">
+        select
+        p.cust_code  as cust_code,
+        p.begin_time as begin_time,
+        p.end_time   as end_time,
+        1            as type,
+        c.cardno     as card_no,
+        c.cardstatus as card_status,
+        f.expendpwd  as consum_pwd,
+        0            as is_special
+        from  pc_customer_base p
+        left join (
+            select
+                c1.customerid,
+                c1.cardno,
+                c1.cardstatus
+            from PC_CUSTOMER_CARD c1
+            union all
+            select
+                c2.customerid,
+                c2.cardno,
+                c2.cardstatus
+            from PC_WRITEOFF_CUS_CARD c2) c on p.id = c.customerid
+        left join FEE_CUS_WALLET f on f.cusid = p.id
+        where p.ver > #{ver} and p.ver <![CDATA[ <= ]]> #{maxVer}
+        order by p.ver
+    </select>
+
+    <select id="getAccessCustGroupList" resultType="com.access.api.model.AccessCustGroupDto">
+        select
+        a.status      as status,
+        a.group_id    as group_id,
+        a.cust_code   as cust_code
+        from
+        (select
+        d1.ISTATE     as status,
+        d1.GROUPCODE  as group_id,
+        d1.ver        as ver,
+        p.CUSTOMERCARDCODE as cust_code
+        from DR_LIMIT_GROUP_CUST d1
+        left join pc_customer_base p on d1.CUSTOMERID = p.ID
+        union all
+        select
+        d2.ISTATE     as status,
+        d2.GROUPCODE  as group_id,
+        d2.ver        as ver,
+        p3.cust_code as cust_code
+        from DR_LIMIT_GROUP_CUST_DEL d2
+        left join (
+                select
+                p1.id               as id,
+                p1.customercardcode as cust_code
+                from pc_customer_base p1
+                union all
+                select
+                p2.custid           as id,
+                p2.customercardcode as cust_code
+                from PC_WRITEOFF p2) p3 on p3.id = d2.CUSTOMERID) a
+        where a.ver > #{ver} and a.ver <![CDATA[ <= ]]> #{maxVer}
+        order by a.ver
+    </select>
+
+    <select id="getAccessCustGroupWholeList" resultType="com.access.api.model.AccessCustGroupDto">
+        select
+        d.ISTATE     as status,
+        d.GROUPCODE  as group_id,
+        d.ver        as ver,
+        p.CUSTOMERCARDCODE as cust_code
+        from DR_LIMIT_GROUP_CUST d
+        left join pc_customer_base p on d.CUSTOMERID = p.ID
+        where d.ver > #{ver} and d.ver <![CDATA[ <= ]]> #{maxVer}
+        order by d.ver
     </select>
 </mapper>

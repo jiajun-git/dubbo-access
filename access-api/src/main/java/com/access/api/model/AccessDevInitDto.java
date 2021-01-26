@@ -13,5 +13,5 @@ import java.io.Serializable;
 @Data
 public class AccessDevInitDto implements Serializable {
     Integer mac;
-    String devSn;
+    String dev_sn;
 }

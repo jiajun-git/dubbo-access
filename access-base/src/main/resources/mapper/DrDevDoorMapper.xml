@@ -24,7 +24,7 @@
     <select id="getDevInitDate" resultType="com.access.api.model.AccessDevInitDto">
         select
         d.ADDR as mac,
-        p.DEVCODE || d.ADDR as devSn
+        p.DEVCODE || d.ADDR as dev_sn
         from dr_dev_door d
         left join pc_dev_info p on d.DEVID = p.ID
         where p.DEVCODE = #{devCode} and p.ISACTIVED = 1

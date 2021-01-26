@@ -11,7 +11,7 @@ public interface AccessCustPlanService {
      * @description: 门禁全量获取用户计划接口
      * @create: 2021-01-13
      **/
-    List<AccessCustPlanDto> queryPlanList();
+    List<AccessCustPlanDto> queryPlanList(Integer ver);
 
 
 }

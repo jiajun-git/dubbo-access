@@ -1,5 +1,8 @@
 package com.access.base.service;
 
+import com.access.api.model.AccessCustDto;
+import com.access.api.model.AccessCustGroupDto;
+import com.access.api.model.AccessGroupDto;
 import com.access.api.model.AccessTemporaryCustDto;
 import com.access.api.service.AccessAuthService;
 import com.access.base.mapper.AccessAuthMapper;
@@ -23,6 +26,36 @@ public class AccessAuthServiceImpl implements AccessAuthService {
     @Override
     public List<AccessTemporaryCustDto> getTemporaryCustList() {
         List<AccessTemporaryCustDto> result = accessAuthMapper.getTemporaryCustList();
+        return result;
+    }
+
+    @Override
+    public List<AccessGroupDto> getAccessGroupList(Integer devId) {
+        List<AccessGroupDto> result = accessAuthMapper.getAccessGroupList(devId);
+        return result;
+    }
+
+    @Override
+    public List<AccessCustDto> getAccessCustList(Integer ver,Integer maxVer) {
+        List<AccessCustDto> resule = accessAuthMapper.getAccessCustList(ver,maxVer);
+        return resule;
+    }
+
+    @Override
+    public List<AccessCustDto> getAccessCustWholeList(Integer ver, Integer maxVer) {
+        List<AccessCustDto> resule = accessAuthMapper.getAccessCustWholeList(ver,maxVer);
+        return resule;
+    }
+
+    @Override
+    public List<AccessCustGroupDto> getAccessCustGroupList(Integer ver,Integer maxVer) {
+        List<AccessCustGroupDto> result = accessAuthMapper.getAccessCustGroupList(ver,maxVer);
+        return result;
+    }
+
+    @Override
+    public List<AccessCustGroupDto> getAccessCustGroupWholeList(Integer ver, Integer maxVer) {
+        List<AccessCustGroupDto> result = accessAuthMapper.getAccessCustGroupWholeList(ver,maxVer);
         return result;
     }
 }

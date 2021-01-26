@@ -21,8 +21,8 @@ public class AccessCustPlanServiceImpl implements AccessCustPlanService {
     AccessCustPlanMapper accessCustPlanMapper;
 
     @Override
-    public List<AccessCustPlanDto> queryPlanList() {
-        List<AccessCustPlanDto> result = accessCustPlanMapper.queryPlanList();
+    public List<AccessCustPlanDto> queryPlanList(Integer ver) {
+        List<AccessCustPlanDto> result = accessCustPlanMapper.queryPlanList(ver);
         return result;
     }
 }

@@ -15,5 +15,5 @@ import java.util.List;
 public interface AccessCustPlanMapper {
 
 
-    List<AccessCustPlanDto> queryPlanList();
+    List<AccessCustPlanDto> queryPlanList(Integer ver);
 }
