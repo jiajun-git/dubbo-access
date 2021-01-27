@@ -8,19 +8,19 @@ import java.util.Date;
 @Data
 public class AccessCustDto implements Serializable {
     //类型(0-取消授权 1-新增授权)
-    Integer type;
+    Integer t;
     //客户编码
-    String cust_code;
+    String cc;
     //卡状态
-    Integer card_status;
+    Integer cs;
     //用户密码
-    String consum_pwd;
+    String cp;
     //物理卡号
-    String card_no;
+    String cn;
     //授权开始时间
-    Date begin_time;
+    Date bt;
     //授权结束时间
-    Date end_time;
+    Date et;
     //是否为特权卡
-    Integer is_special;
+    Integer i;
 }
