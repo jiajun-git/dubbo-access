@@ -5,6 +5,7 @@ import com.access.api.model.AccessCustDto;
 import com.access.api.model.AccessCustGroupDto;
 import com.access.api.model.AccessGroupDto;
 import com.access.api.model.AccessTemporaryCustDto;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -20,13 +21,15 @@ public interface AccessAuthMapper {
 
     List<AccessTemporaryCustDto> getTemporaryCustList();
 
-    List<AccessGroupDto> getAccessGroupList(Integer devId);
+    List<AccessGroupDto> getAccessGroupList(@Param("devId")Integer devId);
 
-    List<AccessCustDto> getAccessCustList(Integer ver,Integer maxVer);
+    List<AccessCustDto> getAccessCustList(@Param("ver")Integer ver,@Param("maxVer")Integer maxVer);
 
-    List<AccessCustDto> getAccessCustWholeList(Integer ver, Integer maxVer);
+    List<AccessCustDto> getAccessCustWholeList(@Param("ver")Integer ver, @Param("maxVer")Integer maxVer);
 
-    List<AccessCustGroupDto> getAccessCustGroupList(Integer ver, Integer maxVer);
+    List<AccessCustGroupDto> getAccessCustGroupList(@Param("ver")Integer ver, @Param("maxVer")Integer maxVer);
 
-    List<AccessCustGroupDto> getAccessCustGroupWholeList(Integer ver, Integer maxVer);
+    List<AccessCustGroupDto> getAccessCustGroupWholeList(@Param("ver")Integer ver, @Param("maxVer")Integer maxVer);
+
+    Integer updateCustSendStatus(@Param("idList")List<Integer> idList);
 }

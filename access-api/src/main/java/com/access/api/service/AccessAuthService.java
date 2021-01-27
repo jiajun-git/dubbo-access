@@ -51,4 +51,11 @@ public interface AccessAuthService {
      * @create: 2021-01-25
      **/
     List<AccessCustGroupDto> getAccessCustGroupWholeList(Integer ver,Integer maxVer);
+
+    /**
+     * @author: sjj
+     * @description: 根据id修改临时人员名单下发状态
+     * @create: 2021-01-26
+     **/
+    Integer updateCustSendStatus(List<Integer> idList);
 }

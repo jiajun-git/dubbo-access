@@ -149,4 +149,12 @@
         where d.ver > #{ver} and d.ver <![CDATA[ <= ]]> #{maxVer}
         order by d.ver
     </select>
+
+    <update id="updateCustSendStatus">
+        update DR_TEMP_CUSTOMER_LIMIT set ISTATE = 1
+        where ID in
+        <foreach collection="idList" item="id" index="index" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </update>
 </mapper>

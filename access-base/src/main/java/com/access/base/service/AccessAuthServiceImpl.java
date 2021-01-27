@@ -58,4 +58,10 @@ public class AccessAuthServiceImpl implements AccessAuthService {
         List<AccessCustGroupDto> result = accessAuthMapper.getAccessCustGroupWholeList(ver,maxVer);
         return result;
     }
+
+    @Override
+    public Integer updateCustSendStatus(List<Integer> idList) {
+        Integer result = accessAuthMapper.updateCustSendStatus(idList);
+        return result;
+    }
 }

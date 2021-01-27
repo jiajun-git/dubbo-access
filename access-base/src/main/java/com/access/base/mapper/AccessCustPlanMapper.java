@@ -2,6 +2,7 @@ package com.access.base.mapper;
 
 
 import com.access.api.model.AccessCustPlanDto;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -15,5 +16,5 @@ import java.util.List;
 public interface AccessCustPlanMapper {
 
 
-    List<AccessCustPlanDto> queryPlanList(Integer ver);
+    List<AccessCustPlanDto> queryPlanList(@Param("ver")Integer ver);
 }
