@@ -29,7 +29,7 @@ public class HelloController {
 
     @RequestMapping(value = "/init")
     public List<AccessDevInitDto> init() {
-        List<AccessDevInitDto> devInitDate = accessDevService.getDevInitDate("10047");
+        List<AccessDevInitDto> devInitDate = accessDevService.getDevInitDate("10021");
 
         System.out.println(helloService.sayHello(devInitDate.toString()));
         return devInitDate;

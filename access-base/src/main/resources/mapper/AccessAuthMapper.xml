@@ -13,7 +13,7 @@
         temp.EDITTIME end_time
         from DR_TEMP_CUSTOMER_LIMIT temp
         left join pc_customer_base customer on customer.ID = temp.CUSTOMERID
-        left join pc_customer_card card on customer.Id = card.CUSTOMERID
+        inner join pc_customer_card card on customer.Id = card.CUSTOMERID
         left join dr_dev_door door on temp.DOORID = door.ID
         left join pc_dev_info dev on temp.DEVID = dev.ID
         where temp.ISTATE = 0 and temp.DEVTYPE = 1
@@ -32,14 +32,14 @@
 
     <select id="getAccessCustList" resultType="com.access.api.model.AccessCustDto">
         select
-        p.cust_code  as cc,
-        p.begin_time as bt,
-        p.end_time   as et,
-        p.type       as t,
-        c.cardno     as cn,
-        c.cardstatus as cs,
-        f.expendpwd  as cp,
-        0            as i
+        p.cust_code  as cust_code,
+        p.begin_time as begin_time,
+        p.end_time   as end_time,
+        p.type       as type,
+        c.cardno     as card_no,
+        c.cardstatus as card_status,
+        f.expendpwd  as consum_pwd,
+        0            as is_special
         from (
             select
                 p1.id               as id,
@@ -78,14 +78,14 @@
 
     <select id="getAccessCustWholeList" resultType="com.access.api.model.AccessCustDto">
         select
-        p.cust_code  as cc,
-        p.begin_time as bt,
-        p.end_time   as et,
-        1            as t,
-        c.cardno     as cn,
-        c.cardstatus as cs,
-        f.expendpwd  as cp,
-        0            as i
+        p.cust_code  as cust_code,
+        p.begin_time as begin_time,
+        p.end_time   as end_time,
+        1            as type,
+        c.cardno     as card_no,
+        c.cardstatus as card_status,
+        f.expendpwd  as consum_pwd,
+        0            as is_special
         from  pc_customer_base p
         left join (
             select
