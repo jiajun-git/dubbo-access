@@ -1,10 +1,11 @@
 package com.access.api.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Table(name = "PC_DEV_INFO")
-public class PcDevInfo {
+public class PcDevInfo implements Serializable {
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "select SEQ_PC_DEV_INFO_ID.nextval from dual")

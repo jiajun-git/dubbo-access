@@ -3,9 +3,10 @@ package com.access.api.entity;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 @Table(name = "DR_DEV_DOOR")
-public class DrDevDoor {
+public class DrDevDoor implements Serializable {
     @Id
     @Column(name = "ID")
     private Integer id;
