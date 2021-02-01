@@ -47,7 +47,7 @@
                 p1.devbegintime     as begin_time,
                 p1.devendtime       as end_time,
                 p1.ver              as ver,
-                1                   as type
+                DECODE(p1.status,1,1,0) as type
             from pc_customer_base p1
             union all
             select
@@ -81,7 +81,7 @@
         p.cust_code  as cust_code,
         p.begin_time as begin_time,
         p.end_time   as end_time,
-        1            as type,
+        DECODE(p.status,1,1,0) as type,
         c.cardno     as card_no,
         c.cardstatus as card_status,
         f.expendpwd  as consum_pwd,
