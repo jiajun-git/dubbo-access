@@ -79,8 +79,8 @@
     <select id="getAccessCustWholeList" resultType="com.access.api.model.AccessCustDto">
         select
         p.cust_code  as cust_code,
-        p.begin_time as begin_time,
-        p.end_time   as end_time,
+        p.devbegintime     as begin_time,
+        p.devendtime       as end_time,
         DECODE(p.status,1,1,0) as type,
         c.cardno     as card_no,
         c.cardstatus as card_status,
