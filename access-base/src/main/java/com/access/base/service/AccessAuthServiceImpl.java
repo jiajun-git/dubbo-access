@@ -1,9 +1,6 @@
 package com.access.base.service;
 
-import com.access.api.model.AccessCustDto;
-import com.access.api.model.AccessCustGroupDto;
-import com.access.api.model.AccessGroupDto;
-import com.access.api.model.AccessTemporaryCustDto;
+import com.access.api.model.*;
 import com.access.api.service.AccessAuthService;
 import com.access.base.mapper.AccessAuthMapper;
 import org.apache.dubbo.config.annotation.Service;
@@ -54,8 +51,8 @@ public class AccessAuthServiceImpl implements AccessAuthService {
     }
 
     @Override
-    public List<AccessCustGroupDto> getAccessCustGroupWholeList(Integer ver, Integer maxVer) {
-        List<AccessCustGroupDto> result = accessAuthMapper.getAccessCustGroupWholeList(ver,maxVer);
+    public List<AccessCustGroupWholeDto> getAccessCustGroupWholeList(Integer ver, Integer maxVer) {
+        List<AccessCustGroupWholeDto> result = accessAuthMapper.getAccessCustGroupWholeList(ver,maxVer);
         return result;
     }
 

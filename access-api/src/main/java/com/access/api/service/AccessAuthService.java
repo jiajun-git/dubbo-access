@@ -1,9 +1,6 @@
 package com.access.api.service;
 
-import com.access.api.model.AccessCustDto;
-import com.access.api.model.AccessCustGroupDto;
-import com.access.api.model.AccessGroupDto;
-import com.access.api.model.AccessTemporaryCustDto;
+import com.access.api.model.*;
 
 import java.util.List;
 
@@ -50,7 +47,7 @@ public interface AccessAuthService {
      * @description: 全量获取人组关系
      * @create: 2021-01-25
      **/
-    List<AccessCustGroupDto> getAccessCustGroupWholeList(Integer ver,Integer maxVer);
+    List<AccessCustGroupWholeDto> getAccessCustGroupWholeList(Integer ver, Integer maxVer);
 
     /**
      * @author: sjj

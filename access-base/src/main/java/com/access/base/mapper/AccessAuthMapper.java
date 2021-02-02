@@ -1,10 +1,7 @@
 package com.access.base.mapper;
 
 
-import com.access.api.model.AccessCustDto;
-import com.access.api.model.AccessCustGroupDto;
-import com.access.api.model.AccessGroupDto;
-import com.access.api.model.AccessTemporaryCustDto;
+import com.access.api.model.*;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -29,7 +26,7 @@ public interface AccessAuthMapper {
 
     List<AccessCustGroupDto> getAccessCustGroupList(@Param("ver")Integer ver, @Param("maxVer")Integer maxVer);
 
-    List<AccessCustGroupDto> getAccessCustGroupWholeList(@Param("ver")Integer ver, @Param("maxVer")Integer maxVer);
+    List<AccessCustGroupWholeDto> getAccessCustGroupWholeList(@Param("ver")Integer ver, @Param("maxVer")Integer maxVer);
 
     Integer updateCustSendStatus(@Param("idList")List<Integer> idList);
 }

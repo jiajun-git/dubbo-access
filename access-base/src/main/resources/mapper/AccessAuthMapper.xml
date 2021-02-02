@@ -138,16 +138,14 @@
         order by a.ver
     </select>
 
-    <select id="getAccessCustGroupWholeList" resultType="com.access.api.model.AccessCustGroupDto">
+    <select id="getAccessCustGroupWholeList" resultType="com.access.api.model.AccessCustGroupWholeDto">
         select
-        d.ISTATE     as status,
-        d.GROUPCODE  as group_id,
-        d.ver        as ver,
+        to_char(wm_concat(d.GROUPCODE)) as groupid_arr,
         p.CUSTOMERCARDCODE as cust_code
         from DR_LIMIT_GROUP_CUST d
         left join pc_customer_base p on d.CUSTOMERID = p.ID
         where d.ver > #{ver} and d.ver <![CDATA[ <= ]]> #{maxVer}
-        order by d.ver
+        group by p.CUSTOMERCARDCODE
     </select>
 
     <update id="updateCustSendStatus">
