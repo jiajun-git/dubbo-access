@@ -6,11 +6,11 @@ spring:
   cloud:
     nacos:
       discovery:
-        namespace: 18faaf9f-4a1a-435a-8437-cff12034ca8f
-        server-addr: 172.168.11.202:8848
+        namespace: bca6fe79-406a-4559-a55c-1cbb37ae7f19
+        server-addr: 172.168.12.95:8848
       config:
-        namespace: cfcb73a7-7642-44f7-a776-f44aadd86571
-        server-addr: 172.168.11.29:8848
+        namespace: bca6fe79-406a-4559-a55c-1cbb37ae7f19
+        server-addr: 172.168.12.95:8848
 pagehelper:
   helper-dialect: oracle
   params: count=countSql

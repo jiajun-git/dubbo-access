@@ -5,8 +5,8 @@
         <Property name="LOG_HOME">./logs</Property>
         <property name="LOG_BACK_HOME">${LOG_HOME}/backup</property>
         <property name="LOG_FILE_NAME">access-communication</property>
-        <property name="PATTERN_OUT">%magenta{%d{yyyy-MM-dd HH:mm:ss.SSS}} | %highlight{%traceId} | %green{%-5level} | %magenta{${sys:PID}} | %cyan{${LOG_FILE_NAME}} | %t | %cyan{%l} : %highlight{%m%n}</property>
-        <property name="PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS} | %traceId | %-5level | ${sys:PID} | ${LOG_FILE_NAME} | %t | %l : %m%n</property>
+        <property name="PATTERN_OUT">%magenta{%d{yyyy-MM-dd HH:mm:ss.SSS}} | %highlight{%traceId} | %green{%-5level} | %magenta{${sys:PID}} | %cyan{${LOG_FILE_NAME}} | %cyan{%l} : %highlight{%m%n}</property>
+        <property name="PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS} | %traceId | %-5level | ${sys:PID} | ${LOG_FILE_NAME} | %l : %m%n</property>
     </Properties>
 
     <Appenders>
@@ -28,6 +28,12 @@
     </Appenders>
 
     <Loggers>
+
+        <!--过滤掉com.alibaba.nacos的信息-->
+        <logger name="com.alibaba.nacos" level="off" additivity="false">
+            <AppenderRef ref="CONSOLE_OUT_APPENDER"/>
+            <AppenderRef ref="LOG_FILE_NAME"/>
+        </logger>
 
         <!-- 配置日志的根节点 -->
         <root level="info">
