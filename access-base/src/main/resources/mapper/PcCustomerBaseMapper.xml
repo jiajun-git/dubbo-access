@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.access.base.mapper.PcCustomerBaseMapper">
+  <resultMap id="BaseResultMap" type="com.access.api.entity.PcCustomerBase">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="DEPID" jdbcType="DECIMAL" property="depid" />
+    <result column="ROLEID" jdbcType="DECIMAL" property="roleid" />
+    <result column="USERNAME" jdbcType="VARCHAR" property="username" />
+    <result column="USERNAMEPY" jdbcType="VARCHAR" property="usernamepy" />
+    <result column="SEX" jdbcType="DECIMAL" property="sex" />
+    <result column="TEL" jdbcType="VARCHAR" property="tel" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="IM" jdbcType="VARCHAR" property="im" />
+    <result column="IDCARDTYPE" jdbcType="DECIMAL" property="idcardtype" />
+    <result column="IDCARDNO" jdbcType="VARCHAR" property="idcardno" />
+    <result column="PROVINCEID" jdbcType="DECIMAL" property="provinceid" />
+    <result column="NATION" jdbcType="DECIMAL" property="nation" />
+    <result column="BIRTHDAY" jdbcType="TIMESTAMP" property="birthday" />
+    <result column="WORKNO" jdbcType="VARCHAR" property="workno" />
+    <result column="STATUS" jdbcType="DECIMAL" property="status" />
+    <result column="ISOPEN" jdbcType="DECIMAL" property="isopen" />
+    <result column="OPENDATATIME" jdbcType="TIMESTAMP" property="opendatatime" />
+    <result column="EDUID" jdbcType="DECIMAL" property="eduid" />
+    <result column="USECARDSTATUS" jdbcType="DECIMAL" property="usecardstatus" />
+    <result column="CARDID" jdbcType="DECIMAL" property="cardid" />
+    <result column="ISPERSONALRULE" jdbcType="DECIMAL" property="ispersonalrule" />
+    <result column="COMPANYID" jdbcType="DECIMAL" property="companyid" />
+    <result column="FAMILYADDR" jdbcType="VARCHAR" property="familyaddr" />
+    <result column="ZIP" jdbcType="VARCHAR" property="zip" />
+    <result column="REMARK" jdbcType="OTHER" property="remark" />
+    <result column="VERFLAG" jdbcType="DECIMAL" property="verflag" />
+    <result column="VER" jdbcType="DECIMAL" property="ver" />
+    <result column="ISACTIVED" jdbcType="DECIMAL" property="isactived" />
+    <result column="IDENTITYID" jdbcType="DECIMAL" property="identityid" />
+    <result column="SUBCARDID" jdbcType="DECIMAL" property="subcardid" />
+    <result column="ENTRYDATE" jdbcType="TIMESTAMP" property="entrydate" />
+    <result column="RESIGNATIONDATE" jdbcType="TIMESTAMP" property="resignationdate" />
+    <result column="POLITICALTYPEID" jdbcType="DECIMAL" property="politicaltypeid" />
+    <result column="MARRIAGESTATUS" jdbcType="DECIMAL" property="marriagestatus" />
+    <result column="VALIDDATE" jdbcType="TIMESTAMP" property="validdate" />
+    <result column="CARDVER" jdbcType="DECIMAL" property="cardver" />
+    <result column="IDENTITYIDDL" jdbcType="DECIMAL" property="identityiddl" />
+    <result column="IFPUSHFARE" jdbcType="VARCHAR" property="ifpushfare" />
+    <result column="RESERVER1" jdbcType="DECIMAL" property="reserver1" />
+    <result column="RESERVER2" jdbcType="VARCHAR" property="reserver2" />
+    <result column="CUSTOMERCARDCODE" jdbcType="VARCHAR" property="customercardcode" />
+    <result column="DEPTCODE" jdbcType="VARCHAR" property="deptcode" />
+    <result column="RESERVER3" jdbcType="DECIMAL" property="reserver3" />
+    <result column="STUDENTID" jdbcType="VARCHAR" property="studentid" />
+    <result column="CARDNUMBER" jdbcType="VARCHAR" property="cardnumber" />
+    <result column="ISFACE" jdbcType="DECIMAL" property="isface" />
+  </resultMap>
+
+  <select id="getCustDataByCustCode" resultType="com.access.api.model.AccessCustBaseDto">
+    select
+    p.ID as custId,
+    p.USERNAME as custName,
+    p.DEPID as deptId,
+    p.WORKNO as workNo,
+    d.DEPNAME as deptName,
+    d.DEPCODE as deptCode
+    from pc_customer_base p
+    left join PC_DEPARTMENT_BASE d on p.DEPID = d.ID
+    where p.CUSTOMERCARDCODE = #{custCode}
+  </select>
+</mapper>
