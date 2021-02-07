@@ -1,10 +1,10 @@
-package com.access.communication;
+package com.access.communication.controller;
 
 
 import com.access.api.model.AccessDevInitDto;
 import com.access.api.service.AccessDevService;
 import com.access.api.service.HelloService;
-import com.alibaba.dubbo.config.annotation.Reference;
+import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
