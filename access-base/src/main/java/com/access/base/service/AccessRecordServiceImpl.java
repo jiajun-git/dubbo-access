@@ -61,12 +61,7 @@ public class AccessRecordServiceImpl implements AccessRecordService {
                 DrDevDoor drDevDoor = drDevDoorMapper.getDevInfoByDevCodeAndMac(devCode, mac);
 
                 //查询人员信息
-                AccessCustBaseDto accessCustBaseDto = new AccessCustBaseDto();
-                try {
-                    accessCustBaseDto =accessCustBaseService.getCustDataByCustCode(accessRecordDto.getCust_code());
-                } catch (Exception ex) {
-
-                }
+                AccessCustBaseDto accessCustBaseDto = accessCustBaseService.getCustDataByCustCode(accessRecordDto.getCust_code());
 
                 if (accessRecordDto.getIs_lawful() == 0) {
                     //合法记录
@@ -158,13 +153,13 @@ public class AccessRecordServiceImpl implements AccessRecordService {
                     drCardLawless.setWritetime(new Date());
                     drCardLawless.setRecflag(0);
                     drCardLawless.setCollectid(0);
-                    drCardLawless.setCustid(accessCustBaseDto.getCustId());
-                    drCardLawless.setCustname(accessCustBaseDto.getCustName());
-                    drCardLawless.setDeptid(accessCustBaseDto.getDeptId());
-                    drCardLawless.setDevname(accessCustBaseDto.getDeptName());
+                    drCardLawless.setCustid(accessCustBaseDto == null? null :accessCustBaseDto.getCustId());
+                    drCardLawless.setCustname(accessCustBaseDto == null? null :accessCustBaseDto.getCustName());
+                    drCardLawless.setDeptid(accessCustBaseDto == null? null :accessCustBaseDto.getDeptId());
+                    drCardLawless.setDevname(accessCustBaseDto == null? null :accessCustBaseDto.getDeptName());
                     drCardLawless.setDevname(pcDevInfo.getDevname());
-                    drCardLawless.setWorkno(accessCustBaseDto.getWorkNo());
-                    drCardLawless.setDeptcode(accessCustBaseDto.getDeptCode());
+                    drCardLawless.setWorkno(accessCustBaseDto == null? null :accessCustBaseDto.getWorkNo());
+                    drCardLawless.setDeptcode(accessCustBaseDto == null? null :accessCustBaseDto.getDeptCode());
                     drCardLawless.setIsfacerecord(0);
                     drCardLawless.setDirection(drDevDoor.getDirection());
                     result = drCardLawlessMapper.insertSelective(drCardLawless);
