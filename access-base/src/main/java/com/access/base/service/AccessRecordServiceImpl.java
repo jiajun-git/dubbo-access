@@ -61,7 +61,13 @@ public class AccessRecordServiceImpl implements AccessRecordService {
                 DrDevDoor drDevDoor = drDevDoorMapper.getDevInfoByDevCodeAndMac(devCode, mac);
 
                 //查询人员信息
-                AccessCustBaseDto accessCustBaseDto = accessCustBaseService.getCustDataByCustCode(accessRecordDto.getCust_code());
+                AccessCustBaseDto accessCustBaseDto = new AccessCustBaseDto();
+                try {
+                    accessCustBaseDto =accessCustBaseService.getCustDataByCustCode(accessRecordDto.getCust_code());
+                } catch (Exception ex) {
+
+                }
+
                 if (accessRecordDto.getIs_lawful() == 0) {
                     //合法记录
                     if (pcDevInfo.getDevtypeid() == 5) {
@@ -85,11 +91,11 @@ public class AccessRecordServiceImpl implements AccessRecordService {
                         drCardPassageway.setWorkno(accessCustBaseDto.getWorkNo());
                         drCardPassageway.setDeptcode(accessCustBaseDto.getDeptCode());
                         result = drCardPassagewayMapper.insertSelective(drCardPassageway);
-                        if(result <= 0){
+                        if (result <= 0) {
                             throw new BusinessException("数据库操作执行异常");
                         }
 
-                    }else{
+                    } else {
                         //门禁记录入门禁记录表
                         DrCardEvent drCardEvent = new DrCardEvent();
                         drCardEvent.setDevid(pcDevInfo.getId());
@@ -110,13 +116,13 @@ public class AccessRecordServiceImpl implements AccessRecordService {
                         drCardEvent.setIsfacerecord(0);
                         drCardEvent.setDirection(drDevDoor.getDirection());
                         result = drCardEventMapper.insertSelective(drCardEvent);
-                        if(result <= 0){
+                        if (result <= 0) {
                             throw new BusinessException("数据库操作执行异常");
                         }
                     }
 
                     //是否为考勤设备,若为考勤设备记录同时入考勤记录表
-                    if(pcDevInfo.getFunctiontype() == 1){
+                    if (pcDevInfo.getFunctiontype() == 1) {
                         PcCardEvent pcCardEvent = new PcCardEvent();
                         pcCardEvent.setDevid(pcDevInfo.getId());
                         pcCardEvent.setDooraddr(mac);
@@ -136,7 +142,7 @@ public class AccessRecordServiceImpl implements AccessRecordService {
                         pcCardEvent.setIsfacerecord(0);
                         pcCardEvent.setDirection(drDevDoor.getDirection());
                         result = pcCardEventMapper.insertSelective(pcCardEvent);
-                        if(result <= 0){
+                        if (result <= 0) {
                             throw new BusinessException("数据库操作执行异常");
                         }
                     }
@@ -162,7 +168,7 @@ public class AccessRecordServiceImpl implements AccessRecordService {
                     drCardLawless.setIsfacerecord(0);
                     drCardLawless.setDirection(drDevDoor.getDirection());
                     result = drCardLawlessMapper.insertSelective(drCardLawless);
-                    if(result <= 0){
+                    if (result <= 0) {
                         throw new BusinessException("数据库操作执行异常");
                     }
 
